@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Youtube Enhancer",
+    "name": "YouTube Enhancer",
     "version": "1.0",
     "description": "Enhance the YouTube experience with custom features.",
     "permissions": [
@@ -10,11 +10,11 @@
       "storage"
     ],
     "host_permissions": [
-      "https://www.youtube.com/**"
+      "https://www.youtube.com/*"
     ],
     "action": {
       "default_icon": {
-        "16": "favicon.png",   
+        "16": "favicon.png",
         "48": "favicon.png",
         "128": "favicon.png"
       }
@@ -22,10 +22,36 @@
     "content_scripts": [
       {
         "matches": [
-          "https://www.youtube.com/**" 
+          "https://www.youtube.com/*"
         ],
         "js": ["content.js"]
       }
-    ]
+    ],
+    "commands": {
+      "history": {
+        "suggested_key": {
+          "default": "Alt+F",
+          "mac": "Alt+F"
+        },
+        "description": "Redirect to history page"
+      },
+      "downloads" : {
+        "suggested_key" : {
+          "default" : "Alt+S",
+          "mac" : "Alt+S"
+        },
+        "description" : "Redirect to downlads page."
+      },
+      "home" : {
+        "suggested_key" : {
+          "default" : "Alt+A",
+          "mac" : "Alt+A"
+        },
+        "description" : "Redirect to home page."
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
   }
   
